@@ -36,7 +36,7 @@ const Todo = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
 
   return (
     <div>
-      <input
+      <input 
         type="checkbox"
         checked={todo.completed}
         onChange={() => toggleTodo(todo.id)}
@@ -103,7 +103,7 @@ const App = () => {
             }
           }}
         >
-          <input type="text" name="todoInput" placeholder="Enter todo..." />
+          <input type="text" className="todoInput"name="todoInput" placeholder="Enter todo..." />
           <button type="submit">Add Todo</button>
         </form>
         {todos.map(todo => (
