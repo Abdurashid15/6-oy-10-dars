@@ -2,7 +2,6 @@ import './App.css'
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 
-// Reducer funksiyasi
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -22,7 +21,7 @@ const todoReducer = (state, action) => {
   }
 };
 
-// Todo komponenti
+
 const Todo = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
   const handleUpdate = () => {
     const updatedText = prompt('Enter updated text', todo.text);
@@ -35,13 +34,8 @@ const Todo = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
   };
 
   return (
-    <div>
-      <input 
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => toggleTodo(todo.id)}
-      />
-      <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+    <div className='info'>
+      <span >
         {todo.text}
       </span>
       <button onClick={handleUpdate}>Update</button>
@@ -61,7 +55,7 @@ Todo.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
 };
 
-// App komponenti
+
 const App = () => {
   const [todos, dispatch] = useReducer(todoReducer, []);
 
@@ -89,10 +83,9 @@ const App = () => {
   };
 
   return (
-    <div className='div
-    '>
+    <div className='div'>
       <div className='Todo'>
-        <h1>Todo List</h1>
+        <h1>CRUD</h1>
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -103,8 +96,12 @@ const App = () => {
             }
           }}
         >
-          <input type="text" className="todoInput"name="todoInput" placeholder="Enter todo..." />
-          <button type="submit">Add Todo</button>
+          <div className="wrapper">
+            <div className="input-data">
+              <input type="text" className="todoInput" name="todoInput" placeholder="Enter todo..." />
+            </div>
+          </div>
+          <button className='add' type="submit">Add Todo</button>
         </form>
         {todos.map(todo => (
           <Todo

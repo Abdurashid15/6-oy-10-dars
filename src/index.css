@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background:linear-gradient(-135deg,#c850c0,#4158d0);
 }
 
 h1 {
@@ -45,9 +46,18 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+}.add{
+  position: absolute;
+  right: 10px;
+  height: 48px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
+
 button:hover {
   border-color: #646cff;
+  color:chartreuse;
+  background-color:chocolate;
 }
 button:focus,
 button:focus-visible {
